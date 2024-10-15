@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sortable Table with Tailwind and Icons</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Heroicons CDN -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/heroicons/1.0.5/outline.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+
+<div class="container mt-0 py-0">
+  <table id="myTable" class="py-0 mx-0 min-w-full bg-white border-collapse">
+    <thead>
+      <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+        <th class="py-3 px-6 text-left cursor-pointer" onclick="sortTable(0)">#<span id="arrow-0"></span></th>
+        <th class="py-3 px-6 text-left cursor-pointer" onclick="sortTable(1)">vessel_class <span id="arrow-1"></span></th>
+        <th class="py-3 px-6 text-left cursor-pointer" onclick="sortTable(2)">threshold <span id="arrow-2"></span></th>
+        <th class="py-3 px-6 text-left cursor-pointer" onclick="sortTable(3)">precision_train <span id="arrow-3"></span></th>
+        <th class="py-3 px-6 text-left cursor-pointer" onclick="sortTable(4)">recall_train <span id="arrow-4"></span></th>
+        <th class="py-3 px-6 text-left cursor-pointer" onclick="sortTable(5)">f1_train <span id="arrow-5"></span></th>
+        <th class="py-3 px-6 text-left cursor-pointer" onclick="sortTable(6)">precision_test <span id="arrow-6"></span></th>
+        <th class="py-3 px-6 text-left cursor-pointer" onclick="sortTable(7)">recall_test <span id="arrow-7"></span></th>
+        <th class="py-3 px-6 text-left cursor-pointer" onclick="sortTable(8)">f1_test <span id="arrow-8"></span></th>
+        <th class="py-3 px-6 text-left cursor-pointer" onclick="sortTable(9)">true_positives <span id="arrow-9"></span></th>
+        <th class="py-3 px-6 text-left cursor-pointer" onclick="sortTable(10)">false_negatives <span id="arrow-10"></span></th>
+        <th class="py-3 px-6 text-left cursor-pointer" onclick="sortTable(11)">false_positives <span id="arrow-11"></span></th>
+      </tr>
+    </thead>
+    <tbody>    <tr>      <th>0</th>      <td>oil_coastal</td>      <td>6.557377</td>      <td>0.684625</td>      <td>0.712927</td>      <td>0.698489</td>      <td>0.684783</td>      <td>0.709231</td>      <td>0.696793</td>      <td>2205.0</td>      <td>904.0</td>      <td>1015.0</td>    </tr>    <tr>      <th>1</th>      <td>lpg_vlgc</td>      <td>19.000000</td>      <td>0.858586</td>      <td>0.894737</td>      <td>0.876289</td>      <td>0.906250</td>      <td>0.915789</td>      <td>0.910995</td>      <td>87.0</td>      <td>8.0</td>      <td>9.0</td>    </tr>    <tr>      <th>2</th>      <td>oil_suezmax</td>      <td>14.000000</td>      <td>0.708791</td>      <td>0.871622</td>      <td>0.781818</td>      <td>0.703704</td>      <td>0.817204</td>      <td>0.756219</td>      <td>152.0</td>      <td>34.0</td>      <td>64.0</td>    </tr>    <tr>      <th>3</th>      <td>lpg_mgc</td>      <td>15.730337</td>      <td>0.894737</td>      <td>0.858586</td>      <td>0.876289</td>      <td>0.900000</td>      <td>0.900000</td>      <td>0.900000</td>      <td>81.0</td>      <td>9.0</td>      <td>9.0</td>    </tr>    <tr>      <th>4</th>      <td>lng_steam</td>      <td>4.587156</td>      <td>0.975000</td>      <td>0.987342</td>      <td>0.981132</td>      <td>0.943662</td>      <td>0.985294</td>      <td>0.964029</td>      <td>67.0</td>      <td>1.0</td>      <td>4.0</td>    </tr>    <tr>      <th>5</th>      <td>oil_intermediate</td>      <td>7.352941</td>      <td>0.826863</td>      <td>0.857488</td>      <td>0.841897</td>      <td>0.845201</td>      <td>0.850467</td>      <td>0.847826</td>      <td>1092.0</td>      <td>192.0</td>      <td>200.0</td>    </tr>    <tr>      <th>7</th>      <td>oil_vlcc</td>      <td>6.930693</td>      <td>0.828877</td>      <td>0.901163</td>      <td>0.863510</td>      <td>0.801047</td>      <td>0.910714</td>      <td>0.852368</td>      <td>153.0</td>      <td>15.0</td>      <td>38.0</td>    </tr>    <tr>      <th>8</th>      <td>lng_small_scale_lng</td>      <td>7.017544</td>      <td>0.823529</td>      <td>0.848485</td>      <td>0.835821</td>      <td>0.720000</td>      <td>0.750000</td>      <td>0.734694</td>      <td>18.0</td>      <td>6.0</td>      <td>7.0</td>    </tr>    <tr>      <th>9</th>      <td>lpg_coasters</td>      <td>5.660377</td>      <td>0.669750</td>      <td>0.573238</td>      <td>0.617747</td>      <td>0.665125</td>      <td>0.569731</td>      <td>0.613743</td>      <td>719.0</td>      <td>543.0</td>      <td>362.0</td>    </tr>    <tr>      <th>10</th>      <td>oil_lr1</td>      <td>7.317073</td>      <td>0.850746</td>      <td>0.900000</td>      <td>0.874680</td>      <td>0.841026</td>      <td>0.877005</td>      <td>0.858639</td>      <td>164.0</td>      <td>23.0</td>      <td>31.0</td>    </tr>    <tr>      <th>11</th>      <td>lng_tfde_dfde</td>      <td>2.197802</td>      <td>0.972603</td>      <td>0.959459</td>      <td>0.965986</td>      <td>0.883117</td>      <td>0.971429</td>      <td>0.925170</td>      <td>68.0</td>      <td>2.0</td>      <td>9.0</td>    </tr>    <tr>      <th>12</th>      <td>oil_mr2</td>      <td>7.228916</td>      <td>0.845286</td>      <td>0.859132</td>      <td>0.852153</td>      <td>0.803753</td>      <td>0.838499</td>      <td>0.820758</td>      <td>1028.0</td>      <td>198.0</td>      <td>251.0</td>    </tr>    <tr>      <th>13</th>      <td>lng_two_stroke</td>      <td>9.090909</td>      <td>0.941176</td>      <td>0.969697</td>      <td>0.955224</td>      <td>1.000000</td>      <td>0.926829</td>      <td>0.962025</td>      <td>38.0</td>      <td>3.0</td>      <td>0.0</td>    </tr>    <tr>      <th>14</th>      <td>oil_aframax</td>      <td>14.634146</td>      <td>0.739264</td>      <td>0.886029</td>      <td>0.806020</td>      <td>0.729231</td>      <td>0.874539</td>      <td>0.795302</td>      <td>237.0</td>      <td>34.0</td>      <td>88.0</td>    </tr>    <tr>      <th>15</th>      <td>oil_mr1</td>      <td>5.813953</td>      <td>0.822581</td>      <td>0.822581</td>      <td>0.822581</td>      <td>0.769492</td>      <td>0.818018</td>      <td>0.793013</td>      <td>454.0</td>      <td>101.0</td>      <td>136.0</td>    </tr>    <tr>      <th>16</th>      <td>lpg_vlec</td>      <td>18.181818</td>      <td>0.750000</td>      <td>1.000000</td>      <td>0.857143</td>      <td>0.250000</td>      <td>0.500000</td>      <td>0.333333</td>      <td>1.0</td>      <td>1.0</td>      <td>3.0</td>    </tr>    <tr>      <th>17</th>      <td>oil_lr2</td>      <td>5.555556</td>      <td>0.772532</td>      <td>0.891089</td>      <td>0.827586</td>      <td>0.735160</td>      <td>0.909605</td>      <td>0.813131</td>      <td>161.0</td>      <td>16.0</td>      <td>58.0</td>    </tr>    <tr>      <th>18</th>      <td>oil_flexi</td>      <td>6.097561</td>      <td>0.772512</td>      <td>0.838046</td>      <td>0.803946</td>      <td>0.763819</td>      <td>0.815013</td>      <td>0.788586</td>      <td>304.0</td>      <td>69.0</td>      <td>94.0</td>    </tr>    <tr>      <th>19</th>      <td>lpg_handysize</td>      <td>4.918033</td>      <td>0.740741</td>      <td>0.909091</td>      <td>0.816327</td>      <td>0.656250</td>      <td>0.840000</td>      <td>0.736842</td>      <td>63.0</td>      <td>12.0</td>      <td>33.0</td>    </tr>    <tr>      <th>20</th>      <td>oil_panamax</td>      <td>9.473684</td>      <td>0.666667</td>      <td>0.888889</td>      <td>0.761905</td>      <td>0.772727</td>      <td>0.790698</td>      <td>0.781609</td>      <td>34.0</td>      <td>9.0</td>      <td>10.0</td>    </tr>    <tr>      <th>21</th>      <td>lng_ssd</td>      <td>20.000000</td>      <td>1.000000</td>      <td>1.000000</td>      <td>1.000000</td>      <td>1.000000</td>      <td>0.500000</td>      <td>0.666667</td>      <td>1.0</td>      <td>1.0</td>      <td>0.0</td>    </tr>    <tr>      <th>22</th>      <td>oil_lr3</td>      <td>28.125000</td>      <td>0.666667</td>      <td>0.727273</td>      <td>0.695652</td>      <td>0.785714</td>      <td>0.846154</td>      <td>0.814815</td>      <td>11.0</td>      <td>2.0</td>      <td>3.0</td>    </tr>    <tr>      <th>23</th>      <td>lpg_lgc</td>      <td>38.666667</td>      <td>0.857143</td>      <td>0.750000</td>      <td>0.800000</td>      <td>0.000000</td>      <td>0.000000</td>      <td>0.000000</td>      <td>0.0</td>      <td>4.0</td>      <td>1.0</td>    </tr>    <tr>      <th>24</th>      <td>lng_q_flex</td>      <td>19.354839</td>      <td>0.750000</td>      <td>1.000000</td>      <td>0.857143</td>      <td>1.000000</td>      <td>1.000000</td>      <td>1.000000</td>      <td>3.0</td>      <td>0.0</td>      <td>0.0</td>    </tr>    <tr>      <th>25</th>      <td>lng_mid_scale_lng</td>      <td>12.345679</td>      <td>0.941176</td>      <td>0.941176</td>      <td>0.941176</td>      <td>0.928571</td>      <td>0.764706</td>      <td>0.838710</td>      <td>13.0</td>      <td>4.0</td>      <td>1.0</td>    </tr>    <tr>      <th>26</th>      <td>lng_q_max</td>      <td>25.000000</td>      <td>1.000000</td>      <td>1.000000</td>      <td>1.000000</td>      <td>1.000000</td>      <td>1.000000</td>      <td>1.000000</td>      <td>1.0</td>      <td>0.0</td>      <td>0.0</td>    </tr>    <tr>      <th>27</th>      <td>oil_handysize</td>      <td>63.492063</td>      <td>0.500000</td>      <td>1.000000</td>      <td>0.666667</td>      <td>0.000000</td>      <td>0.000000</td>      <td>0.000000</td>      <td>0.0</td>      <td>5.0</td>      <td>0.0</td>    </tr>  </tbody></table>
+
+  </table>
+</div>
+
+<script>
+  let currentSortColumn = -1;
+  let currentDirection = '';
+
+  function sortTable(n) {
+  	n = n-1
+    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    table = document.getElementById("myTable");
+
+    // Determine sort direction
+    if (n === currentSortColumn) {
+      currentDirection = currentDirection === "asc" ? "desc" : "asc";
+    } else {
+      currentSortColumn = n;
+      currentDirection = "asc"; // Default to ascending on a new column
+    }
+
+    dir = currentDirection;
+
+    // Clear existing arrows
+    clearArrows();
+
+    // Add the arrow to the clicked column
+    let arrowId = `arrow-${n}`;
+
+
+    // Sorting logic
+    switching = true;
+    while (switching) {
+      switching = false;
+      rows = table.rows;
+      for (i = 1; i < (rows.length - 1); i++) {
+        shouldSwitch = false;
+        x = rows[i].getElementsByTagName("TD")[n];
+        y = rows[i + 1].getElementsByTagName("TD")[n];
+
+        var xContent = x.innerHTML.trim();
+        var yContent = y.innerHTML.trim();
+
+        // Check if the values are numeric or strings and compare accordingly
+        if (!isNaN(parseFloat(xContent)) && !isNaN(parseFloat(yContent))) {
+          // Sort numerically
+          xContent = parseFloat(xContent);
+          yContent = parseFloat(yContent);
+        }
+
+        if (dir === "asc") {
+          if (xContent > yContent) {
+            shouldSwitch = true;
+            break;
+          }
+        } else if (dir === "desc") {
+          if (xContent < yContent) {
+            shouldSwitch = true;
+            break;
+          }
+        }
+      }
+      if (shouldSwitch) {
+        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+        switching = true;
+        switchcount++;
+      } else {
+        if (switchcount === 0 && dir === "asc") {
+          dir = "desc";
+          switching = true;
+        }
+      }
+    }
+  }
+
+  function clearArrows() {
+    for (let i = 0; i <= 11; i++) {
+      document.getElementById(`arrow-${i}`).innerHTML = '';
+    }
+  }
+</script>
+
+</body>
+</html>
